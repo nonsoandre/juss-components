@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save Button Component</title>
+  <link rel="stylesheet" href="../content-loading/base.css">
+  <style>
+    button{
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: var(--space-2) var(--space-4);
+        background: var(--color-blue-500);
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        color: var(--color-white);
+    }
+    button:focus{
+      box-shadow: 0 0 0 4px var(--color-blue-200);
+    }
+    button.active{
+      background: var(--color-blue-300);
+      cursor: not-allowed;
+    }
+    button.active .btn-text{
+      margin-right: var(--space-4);
+    }
+    button.active .btn-loader{
+      position: unset;
+      animation: spin .3s  linear infinite;
+      opacity: 1;
+    }
+    .btn-text{
+      font-size: 1.2rem;
+      transition: margin-right .3 s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .btn-loader{
+      position: absolute;
+      width: var(--space-4);
+      height: var(--space-4);
+      border-left: 2px solid var(--color-white);
+      border-top: 2px solid var(--color-white);
+      border-radius: 100%;
+      margin-left: 2px;
+      opacity: 0;
+    } 
+
+    @keyframes spin{
+      to{
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  
+    <button>
+      <div class="btn-text">Save</div>
+      <div class="btn-loader"></div>
+    </button>
+    
+    <script>
+      // get button
+      // set button class to active
+      // change vutton text
+      // disable button focus mode on active state
+      // reset to original state after 1000ms
+
+      let button = document.querySelector('button');
+
+      const saveDocument = (event)=>{
+        const button = event.currentTarget;  //get the exact button where evebt is taking place
+        // change text content
+        const buttonText = button.querySelector('.btn-text');
+        buttonText.innerText = "Saving"
+        // change button class to active
+        button.classList.add('active');
+        // remove focus mode styles
+        button.disabled = true;
+
+        resetSavestate(button);
+      }
+
+      button.addEventListener('click', saveDocument)
+
+      function resetSavestate(elem){
+        setTimeout(()=>{
+          elem.querySelector('.btn-text').innerText = 'Save';
+          elem.classList.remove('active');
+          elem.disabled = false;
+          elem.focus()
+        }, 1000)
+      }
+    </script>
+</body>
+</html>

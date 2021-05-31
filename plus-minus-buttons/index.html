@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../content-loading/base.css">
+  <style>
+    .main-wrapper{
+      background: var(--color-white);
+      box-shadow: var(--shadow);
+      border-radius: 10px;
+      width: var(--container-width);
+      padding: 0 var(--space-5);
+    }
+    .box-1{
+      display: flex;
+      padding: var(--space-8) 0;
+    }
+    .text-content{
+      margin-right: 20px;
+    }
+    .label{
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: .8px;
+    }
+    .description{
+      font-size: 13px;
+      color:gray;
+    }
+    .control-btns{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      align-items: center;
+    }
+    .control-btn{
+      border-radius: 50%;
+      width: var(--space-12 );
+      height: var(--space-12 );
+      border: 1px solid var(--color-blue-300);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .number{
+      width: var(--space-12 );
+      /* height: var(--space-12 ); */
+      text-align: center;
+    }
+    .dim{
+      color: var(--color-gray-200);
+    }
+  </style>
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="box-1">
+      <div class="text-content">
+        <h3 class="label">Adults</h3>
+        <p class="description">The people over 12 years old</p>
+      </div>
+      <div class="control-btns">
+        <button class="minus control-btn">
+          <img src="icon-minus.svg" alt="">
+        </button>
+        <div class="number dim">
+        0
+        </div>
+        <button class="plus control-btn">
+          <img src="icon-plus.svg" alt="">
+        </button>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+</script>
+</body>
+</html>
